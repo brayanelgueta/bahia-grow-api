@@ -1,5 +1,6 @@
 <?php
 
+namespace App\Http\Controllers;
 /** @var \Laravel\Lumen\Routing\Router $router */
 
 /*
@@ -16,3 +17,10 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+$router->group(['middleware' => ['CorsMiddleware']], function () use ($router) {
+    $router->group(['prefix' => 'api'], function () use ($router) {
+        $router->get('usuarios', 'UserController@mostrarUsuarios');
+    });
+});
+

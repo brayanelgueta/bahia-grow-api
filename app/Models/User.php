@@ -18,8 +18,10 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      *
      * @var array
      */
+    protected $table = 'users';
+    protected $primaryKey = 'rut';
     protected $fillable = [
-        'name', 'email',
+        'rut', 'names', 'last_name', 'email', 'phone', 'admin'
     ];
 
     /**
