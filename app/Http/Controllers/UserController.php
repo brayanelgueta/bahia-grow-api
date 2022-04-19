@@ -27,6 +27,8 @@ class UserController extends Controller
 
         $nuevoUsuario->save();
 
+        return response('Agregado', 200);
+
     }
 
     public function editUser($id){
